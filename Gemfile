@@ -10,6 +10,7 @@ gem 'jbuilder',               '2.2.6'
 gem 'slim-rails',             '3.0.1'
 gem 'pg',                     '0.18.1'
 gem 'sass-rails',             '5.0.3'
+gem 'foundation-rails',       '5.5.2.1'
 gem 'coffee-rails',           '4.1.0'
 gem 'uglifier',               '2.7.0'
 gem 'simple_form',            '3.1.0'
@@ -31,6 +32,7 @@ end
 
 group :development do
   gem 'foreman',              '0.77.0'
+  gem 'html2haml'
   gem 'jumpup',               '0.0.8'
   gem 'jumpup-heroku',        '0.0.6'
   gem 'better_errors',        '2.1.1'
@@ -38,6 +40,7 @@ group :development do
   gem 'letter_opener',        '1.3.0'
   gem 'bullet',               '4.14.0'
   gem 'quiet_assets',         '1.1.0'
+  gem 'rails_layout'
 end
 
 group :test do

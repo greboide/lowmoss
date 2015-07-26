@@ -1,0 +1,8 @@
+require 'rails_helper'
+describe "Home page" do
+  it "entra na home" do
+    page.has_content?('foo')
+
+    expect(page).to have_content "Welcome"
+  end
+end
