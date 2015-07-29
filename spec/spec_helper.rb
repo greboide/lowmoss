@@ -15,7 +15,52 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'warden'
+require 'capybara/poltergeist'
+require 'active_record'
+# Forces all threads to share the same connection. This works on
+# Capybara because it starts the web server in a thread.
+
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || ConnectionPool::Wrapper.new(size: 1) { retrieve_connection }
+  end
+end
+
 RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:transaction)
+  end
+
+  # If an example has one of the following options: :js, :driver
+  # the connection to the databas e will be shared to Capybara thread.
+  # Option :clean_db_strategy allows to set any of three strategies available in
+  # DatabaseCleaner: :transaction, :truncation, :deletion. The default and the fastest
+  # value is :transaction.
+  config.around(:each) do |example|
+    if example.metadata[:clean_db_strategy]
+      DatabaseCleaner.strategy = example.metadata[:clean_db_strategy]
+    end
+
+    DatabaseCleaner.cleaning do
+      if example.metadata[:js] || example.metadata[:driver]
+        ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+        example.run
+        ActiveRecord::Base.shared_connection = nil
+      else
+        example.run
+      end
+    end
+
+    if example.metadata[:clean_db_strategy]
+      DatabaseCleaner.strategy = :transaction
+    end
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -29,7 +74,11 @@ RSpec.configure do |config|
     #   # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
-
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+    WebMock.disable_net_connect!(:allow_localhost => true)
+  end
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
