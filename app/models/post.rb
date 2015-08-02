@@ -4,8 +4,8 @@ class Post < ActiveRecord::Base
   has_many :comments, class_name: 'Post', foreign_key: 'original_post_id'
   belongs_to :original_post, class_name: 'Post'
 
-  def self.comment
-    where(original_post_id: true)
+  def self.comments
+    where("original_post_id IS NOT NULL")
   end
   def self.original_post
     where(original_post_id: nil)

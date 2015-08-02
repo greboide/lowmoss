@@ -15,7 +15,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
-SimpleCov.start 'rails'
+if ENV["COVERAGE"]
+  SimpleCov.start 'rails'
+end
 require 'capybara/rspec'
 require 'warden'
 require 'capybara/poltergeist'
