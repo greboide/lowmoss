@@ -9,8 +9,6 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
     meta content="serviço de microblog feito como exercicio para a Helabs" name="description" /
     meta content="greboide" name="author" /
     meta content="Glauber Prado (c) 2015" name="copyright" /
-    link href="http://foundation.zurb.com/assets/css/templates/foundation.css" rel="stylesheet" /
-    script src=("./Foundation Template _ Feed_files/modernizr.js")
     meta.foundation-data-attribute-namespace/
     meta.foundation-mq-xxlarge/
     meta.foundation-mq-xlarge-only/
@@ -33,7 +31,7 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
       .large-3.columns
         .panel
           a href="http://foundation.zurb.com/templates/feed.html#"
-            img src=("./Foundation Template _ Feed_files/300x240&text=[img]") /
+            =image_tag "300x240"
           h5
             a href="http://foundation.zurb.com/templates/feed.html#"  Your Name
           .section-container.vertical-nav data-options=("deep_linking: false; one_up: true") data-section=""
@@ -56,66 +54,16 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
               h5.title
                 a href="http://foundation.zurb.com/templates/feed.html#"  Section 6
       .large-6.columns
-        .row
-          .large-2.columns.small-3
-            img src=("./Foundation Template _ Feed_files/80x80&text=[img]") /
-          .large-10.columns
-            p
-              strong Some Person said:
-              | Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.
-            ul.inline-list
-              li
-                a href=""  Reply
-              li
-                a href=""  Share
-            h6 2 Comments
-            .row
-              .large-2.columns.small-3
-                img src=("./Foundation Template _ Feed_files/50x50&text=[img]") /
-              .large-10.columns
-                p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit
-            .row
-              .large-2.columns.small-3
-                img src=("./Foundation Template _ Feed_files/50x50&text=[img]") /
-              .large-10.columns
-                p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit
-        hr/
-        .row
-          .large-2.columns.small-3
-            img src=("./Foundation Template _ Feed_files/80x80&text=[img]") /
-          .large-10.columns
-            p
-              strong Some Person said:
-              | Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.
-            ul.inline-list
-              li
-                a href=""  Reply
-              li
-                a href=""  Share
-        hr/
-        .row
-          .large-2.columns.small-3
-            img src=("./Foundation Template _ Feed_files/80x80&text=[img]") /
-          .large-10.columns
-            p
-              strong Some Person said:
-              | Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.
-            ul.inline-list
-              li
-                a href=""  Reply
-              li
-                a href=""  Share
-            h6 2 Comments
-            .row
-              .large-2.columns.small-3
-                img src=("./Foundation Template _ Feed_files/50x50&text=[img]") /
-              .large-10.columns
-                p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit
+        # TODO test here
+        - if user_signed_in?
+          = render 'posts/form'
+        div id='posts'
+          = render 'posts/index'
       aside.large-3.columns.hide-for-small
         p
-          img src=("./Foundation Template _ Feed_files/300x440&text=[ad]") /
+          =image_tag "300x440"
         p
-          img src=("./Foundation Template _ Feed_files/300x440&text=[ad]") /
+          =image_tag "300x440"
     footer.row
       .large-12.columns
         hr/
@@ -136,19 +84,3 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
                 a href="http://foundation.zurb.com/templates/feed.html#"  Section 5
               li
                 a href="http://foundation.zurb.com/templates/feed.html#"  Section 6
-    javascript:
-      | document.write('<script src=js/vendor/' +
-      | ('__proto__' in {} ? 'zepto' : 'jquery') +
-      | '.js><\/script>')
-    script src=("./Foundation Template _ Feed_files/zepto.js")
-    script src=("./Foundation Template _ Feed_files/jquery.js")
-    script src=("./Foundation Template _ Feed_files/foundation.min.js")
-    javascript:
-      | $(document).foundation();
-    script src=("./Foundation Template _ Feed_files/jquery(1).js")
-    script src=("./Foundation Template _ Feed_files/foundation.js")
-    javascript:
-      | $(document).foundation();
-
-      | var doc = document.documentElement;
-      | doc.setAttribute('data-useragent', navigator.userAgent);

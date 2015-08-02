@@ -20,7 +20,8 @@ gem 'neat',                   '1.7.1'
 gem 'bitters',                '1.0.0'
 gem 'refills',                '0.1.0'
 gem 'normalize-rails',        '3.0.1'
-
+gem 'devise'
+gem 'devise-i18n'
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'
   gem 'rack-canonical-host',  '0.1.0'
@@ -35,12 +36,14 @@ group :development do
   gem 'html2haml'
   gem 'jumpup',               '0.0.8'
   gem 'jumpup-heroku',        '0.0.6'
+  gem 'devise-i18n-views'
   gem 'better_errors',        '2.1.1'
   gem 'binding_of_caller',    '0.7.2'
   gem 'letter_opener',        '1.3.0'
   gem 'bullet',               '4.14.0'
   gem 'quiet_assets',         '1.1.0'
   gem 'rails_layout'
+  gem 'annotate_models'
 end
 
 group :test do
@@ -52,6 +55,7 @@ group :test do
   gem 'vcr',                  '2.9.3'
   gem 'webmock',              '1.20.4'
   gem 'database_cleaner',     '1.4.0'
+  gem 'connection_pool'
 end
 
 group :development, :test do

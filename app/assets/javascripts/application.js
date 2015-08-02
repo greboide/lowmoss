@@ -16,5 +16,17 @@
 //= require foundation
 //= require_tree .
 $(function() {
-  $(document).foundation();
+    $.myapp = {};
+    $(document).foundation();
+    if ($("#post_ids").length[0])
+    {
+    $.myapp.allPostIds = $.parseJSON($('#post_ids').attr('data-post-ids'));
+    $.myapp.allPostIds.forEach( function(item) {
+        $("#reply_to_" + item).click(function() {
+            $('html, body').animate({
+                scrollTop: $("#comments_form_"+ item).offset().top
+            }, 2000);
+        });
+    });
+    };
 });

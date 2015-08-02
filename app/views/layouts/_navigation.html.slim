@@ -1,14 +1,27 @@
 / navigation styled for Zurb Foundation 5
 / the syntax for data-topbar may need to change for Zurb Foundation 5
 nav.top-bar data-topbar=true
-  ul.title-area
-    li.name
+  ul.inline-list.title-area.large-6.large-centered
+  ul.inline-list.title-area.large-6.large-centered
+
+    li.block.name
+      = image_tag 'small_logo.png'
+    li.block.name
       h1
         = link_to 'Home', root_path
-    li.name
+  ul.inline-list.title-area.right
+
+    li.block.name
+      ate
+    li.block.name
       h1
-        a href="#"
-          | Menu
+        = link_to (t "devise.registrations.new.sign_up"), new_user_registration_path, class: 'custom-button-class large round'
+    li.block.name
+      h1
+        - if user_signed_in?
+          = link_to (t "devise.sessions.new.sign_out"), destroy_user_session_path, :method => :delete, class: 'custom-button-class'
+        - else
+          = link_to (t "devise.sessions.new.sign_in"), new_user_session_path, class: 'custom-button-class'
   .top-bar-section
     ul
       = render 'layouts/navigation_links'
