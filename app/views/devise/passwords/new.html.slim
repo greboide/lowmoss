@@ -1,0 +1,13 @@
+br
+br
+.row
+  .large-5.large-centered.columns
+    .panel
+      h3.large-centered
+        = t('.change_your_password', :default => 'Change your password')
+      hr
+      = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+        = devise_error_messages!
+        = f.input :email, required: true, autofocus: true
+        = f.button :submit, t('.send_me_reset_password_instructions', :default => "Send me reset password instructions")
+      = render "devise/shared/links"

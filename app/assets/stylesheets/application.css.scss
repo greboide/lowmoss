@@ -12,3 +12,16 @@
  *
  *= require_self
  */
+@import "foundation_and_overrides";
+.custom-button-class { @include button($padding: $button-lrg, $radius: 100px);
+                       margin-top: 0.7em;
+                     }
+meta.foundation-data-attribute-namespace {
+  font-family: false; }
+input.boolean, label.boolean {
+  margin-right:5px;
+}
+.top-bar {
+  border-bottom: 3px solid #188A68;
+  height: 3em;
+}

@@ -1,0 +1,17 @@
+br
+br
+.row
+  .large-5.large-centered.columns
+    .panel
+      h2
+        = t('.sign_in', :default => "Sign up")
+      hr
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "large-6 columns") do |f|
+        = devise_error_messages!
+        div.form-inputs
+          = f.input :email, required: true, autofocus: true
+          = f.input :password, required: true,  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          - if devise_mapping.rememberable?
+            = f.input :remember_me, :as => :boolean, :input_html => { :class => 'inline', :checked => "checked" }
+          = f.button :submit, t('.sign_in', :default => "Sign in")
+      = render "devise/shared/links"

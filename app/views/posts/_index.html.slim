@@ -1,0 +1,28 @@
+div id='post_ids' data-post-ids="#{@posts.ids.to_json}"
+- @posts.each do |post|
+  .row
+    .large-2.columns.small-3
+      =image_tag "80x80"
+    .large-10.columns
+      p
+        strong
+          = post.user.name
+          | , said:
+
+        br
+        = post.body
+      ul.inline-list
+        li
+          - if user_signed_in?
+            = link_to "Reply", post_comments_path(original_post_id: post.id), remote: true, id: "reply_to_#{post.id}"
+          - else
+        /
+          li
+            a href=""  Share
+      - if post.comments
+        = render 'posts/comments', post: post
+      - else
+
+
+  hr/
+  div id="comments_form_#{post.id}"

@@ -11,3 +11,7 @@ pt-BR:
     <<: *models_and_attributes
   activemodel:
     <<: *models_and_attributes
+  app:
+    account:
+      login: "Entrar"
+      signup: "Participar!"

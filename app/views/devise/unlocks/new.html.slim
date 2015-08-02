@@ -1,0 +1,11 @@
+br
+br
+.row
+  .large-5.large-centered.columns
+    .panel
+      h3.large-centered
+        = t('.resend_unlock_instructions', :default => "Resend unlock instructions")
+      = simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+        = devise_error_messages!
+        = f.input :email
+        = f.button :submit, t('.resend_unlock_instructions', :default => "Resend unlock instructions")= render "devise/shared/links"

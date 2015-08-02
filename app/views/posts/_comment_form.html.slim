@@ -1,0 +1,10 @@
+div id='"comments_form_#{@post.original_post_id}"' data-oririgal-post-id='"#{@post.original_post_id}"'
+  = simple_form_for(@post, remote: true) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :body
+      = f.association :user, as: 'hidden'
+      = f.association :original_post , selected: @post.original_post_id, as: 'hidden'
+    .form-actions
+      = f.button :submit

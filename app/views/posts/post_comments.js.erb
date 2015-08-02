@@ -1,0 +1,4 @@
+// TODO aqui falta um contador pro form pra colocar ele só pra o post especifico
+$("<%= "#comments_form_#{params[:original_post_id]}" %>").replaceWith("<%= j (render 'posts/comment_form',layout: false, original_post_id: post_id) %>");
+setTimeout(function() { $("<%= "#comments_form_#{params[:original_post_id]}" %>").focus() }, 3000);
+// $("<%= "#comments_form_#{params[:original_post_id]}" %>").attr('tabindex',<%= params[:original_post_id] %>).focus();

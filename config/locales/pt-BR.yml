@@ -140,7 +140,7 @@ pt-BR:
     select:
       prompt: Por favor selecione
     submit:
-      create: Criar %{model}
+      create: "%{model}"
       submit: Salvar %{model}
       update: Atualizar %{model}
   number:
@@ -218,3 +218,16 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+    attributes:
+      user:
+        current_password: Senha atual
+        email: Email
+        password: Senha
+        password_confirmation: Confirme sua senha
+        remember_me: Lembre-se de mim
+      post:
+        body: moss
+        comment: comentário
+    models:
+      user: Usuário
+      post: moss

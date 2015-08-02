@@ -1,0 +1,10 @@
+div id='post_form'
+  = simple_form_for(@post, remote: true) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :body
+      = f.association :user, as: 'hidden'
+
+    .form-actions
+      = f.button :submit

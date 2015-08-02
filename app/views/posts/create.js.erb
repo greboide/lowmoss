@@ -1,0 +1,3 @@
+$('#posts').html("<%= j (render partial: 'posts/index', formats: [:html]) %>");
+$('#posts_form').html("<%= j (render partial: 'posts/form', formats: [:html]) %>");
+$('#post_body').val('');
