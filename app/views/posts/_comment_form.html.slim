@@ -1,4 +1,4 @@
-div id='"comments_form_#{@post.original_post_id}"' data-oririgal-post-id='"#{@post.original_post_id}"'
+div id="comments_form_#{@post.original_post_id}" data-oririgal-post-id="#{@post.original_post_id}"
   = simple_form_for(@post, remote: true) do |f|
     = f.error_notification
 
