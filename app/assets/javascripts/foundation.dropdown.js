@@ -164,10 +164,10 @@
       dropdown.data('target', target.get(0)).trigger('opened.fndtn.dropdown', [dropdown, target]);
       dropdown.attr('aria-hidden', 'false');
       target.attr('aria-expanded', 'true');
-        // this is just a small customization to fit my needs, perhaps i need
-        // to expand this, but this is the only place where the original code
-        // call focus
-        dropdown.parent().find('input#filter').focus();
+      // this is just a small customization to fit my needs, perhaps i need
+      // to expand this, but this is the only place where the original code
+      // call focus
+      dropdown.parent().find('input#filter').focus();
       dropdown.addClass('f-open-' + this.attr_name(true));
     },
 
