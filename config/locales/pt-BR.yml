@@ -228,6 +228,7 @@ pt-BR:
       post:
         body: moss
         comment: comentário
+        reply: moss
     models:
       user: Usuário
       post: moss

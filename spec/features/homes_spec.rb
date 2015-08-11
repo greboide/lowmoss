@@ -19,13 +19,12 @@ describe "Home page" do
     visit root_path
     fill_in (I18n.t "activerecord.attributes.post.body"), :with => 'esse céu azul estrelado me faz ter vontade de viver'
     click_button(I18n.t "helpers.submit.create", model: 'moss')
+    wait_for_ajax
     expect(page).to have_content('esse céu azul estrelado me faz ter vontade de viver')
   end
   it "permite comentários ao usuário logado", js: true do
     user = FactoryGirl.create(:user)
-
     post = FactoryGirl.create(:post, user: user)
-
     login_as(user, :run_callbacks => false)
     visit root_path
     page.find("#reply_to_#{post.id}").click
@@ -35,5 +34,17 @@ describe "Home page" do
       click_button(I18n.t "helpers.submit.create", model: 'moss')
     end
     expect(page).to have_content('esse céu amarelo estrelado me faz ter vontade de viver')
+  end
+  it "permite buscar perfil de outros usuários" do
+    user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, email: "buscar@teste.com.br")
+    post = FactoryGirl.create(:post, user: user)
+    post2 = FactoryGirl.create(:post, user: user2, body: 'post from user2')
+    login_as(user, :run_callbacks => false)
+    visit root_path
+    expect(page).to_not have_content('user2')
+    fill_in 'filter', :with => 'buscar'
+    click_link("@buscar")
+    expect(page).to have_content('user2')
   end
 end

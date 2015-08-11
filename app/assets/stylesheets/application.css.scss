@@ -13,6 +13,7 @@
  *= require_self
  */
 @import "foundation_and_overrides";
+@import "font-awesome";
 .custom-button-class { @include button($padding: $button-lrg, $radius: 100px);
                        margin-top: 0.7em;
                      }
@@ -24,4 +25,65 @@ input.boolean, label.boolean {
 .top-bar {
   border-bottom: 3px solid #188A68;
   height: 3em;
+}
+nav.top-bar.expanded {z-index: 1000;}
+.content {
+  top: -20px;
+}
+/* ul.search-result li, a{ */
+/* background: #188A68; */
+/* color: #188A68; */
+/* width: 100%; */
+/* hr{ */
+/*   margin: 0px; */
+/* } */
+/* } */
+/* ul.search-result div{ */
+/* background: #188A68; */
+/* color: #188A68; */
+/* width: 100%; */
+/* } */
+
+low { padding-left: 40px;
+  color: #188A68; }
+ul.search-result li {
+width: 100%;
+background-color: #000;
+hr{
+  margin: 0px;
+}
+
+}
+.top-bar-section ul li > a {
+background-color: #188A68 !important;
+color: #ffffff;
+width: 100%;
+}
+$f-dropdown-content-padding: 10px;
+#users_dropdown.search-result{
+padding-top: 0px;
+padding-bottom: 0px;
+padding-right: 0px;
+padding-left: 0px;
+background-color: #188A68 !important;
+color: #ffffff;
+border: none;
+max-width: 12rem;
+}
+.has-form {
+  left: 2rem; // adjust distance from left here
+  width: 14rem; // adjust width here
+  .search-result {
+    top: -20px;
+  }
+  .button {
+    top: -20px;
+    left: 12rem; // adjust distance from left here
+    height: 1.85rem;
+    max-width: 2rem;
+  }
+  @media only screen and (max-width: 40em) {
+    min-width: 10rem;
+    top: 0.5rem;
+  }
 }

@@ -14,9 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require smart_listing
 //= require_tree .
+
 $(function() {
     $.myapp = {};
+    $(document).foundation('dropdown', 'reflow');
     $(document).foundation();
     if ($("#post_ids").length)
     {

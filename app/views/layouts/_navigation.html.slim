@@ -1,27 +1,42 @@
 / navigation styled for Zurb Foundation 5
 / the syntax for data-topbar may need to change for Zurb Foundation 5
 nav.top-bar data-topbar=true
-  ul.inline-list.title-area.large-6.large-centered
-  ul.inline-list.title-area.large-6.large-centered
-
-    li.block.name
-      = image_tag 'small_logo.png'
-    li.block.name
+  ul.title-area
+    li.name
       h1
-        = link_to 'Home', root_path
-  ul.inline-list.title-area.right
-
-    li.block.name
-      ate
-    li.block.name
-      h1
-        = link_to (t "devise.registrations.new.sign_up"), new_user_registration_path, class: 'custom-button-class large round'
-    li.block.name
-      h1
-        - if user_signed_in?
-          = link_to (t "devise.sessions.new.sign_out"), destroy_user_session_path, :method => :delete, class: 'custom-button-class'
-        - else
-          = link_to (t "devise.sessions.new.sign_in"), new_user_session_path, class: 'custom-button-class'
-  .top-bar-section
+        Low Moss
+  section.top-bar-section
     ul
-      = render 'layouts/navigation_links'
+      li.name
+        = image_tag 'small_logo.png'
+      li.name
+        h1
+          = link_to (fa_icon "chevron-right", text: 'Home', right: true), root_path
+      - if @users
+        li.has-form.has-dropdown
+          = smart_listing_controls_for(:users) do
+            .filter.input-append
+              = text_field_tag :filter, '', class: "columns search",
+              placeholder: "Type name here", autocomplete: "off", 'data-dropdown' => 'users_dropdown', 'aria-controls' => 'users_dropdown'
+                = t "activerecord.attributes.search.body"
+            button.button.disabled.expand type="submit"
+              = fa_icon "search", class: 'columns'
+        ul.search-result.f-dropdown id='users_dropdown' class="f-dropdown content small" aria-hidden="true" tabindex="-1" data-dropdown-content=''
+          = smart_listing_render(:users)
+
+    ul.right
+
+      - if user_signed_in?
+        li.block.name
+          h1
+            = link_to (fa_icon "sign-out", text: (t "devise.sessions.new.sign_out")), destroy_user_session_path, :method => :delete, class: 'custom-button-class'
+      - else
+        li.block.name
+          h1
+            = link_to (fa_icon "sign-in", text: (t "devise.registrations.new.sign_up")), new_user_registration_path, class: 'custom-button-class large round'
+        li.block.name
+          h1
+           |%
+        li.block.name
+          h1
+            = link_to (fa_icon "tree", text: (t "devise.sessions.new.sign_in")), new_user_session_path, class: 'custom-button-class'

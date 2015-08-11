@@ -12,7 +12,7 @@ A aplicação a ser desenvolvida é um microblog, assim como o twitter.
 
 *** DONE Criar postagens
 *** DONE Ver as postagens criadas
-*** TODO Comentar postagens
+*** DONE Comentar postagens
 *** TODO Buscar por outros usuários
 *** TODO Visualizar o perfil de outros usuários com suas postagens
 *** TODO Seguir outro usuário

@@ -1,0 +1,9 @@
+- unless smart_listing.empty?
+  - smart_listing.collection.each do |user|
+    li
+      = link_to user.name, root_path(user_id: user.id)
+      hr
+
+  = smart_listing.paginate
+- else
+  p.warning No records!

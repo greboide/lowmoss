@@ -14,14 +14,14 @@ div id='post_ids' data-post-ids="#{@posts.ids.to_json}"
       ul.inline-list
         li
           - if user_signed_in?
-            = link_to "Reply", post_comments_path(original_post_id: post.id), remote: true, id: "reply_to_#{post.id}"
+            = link_to (fa_icon "reply", text: (t "activerecord.attributes.post.reply")), post_comments_path(original_post_id: post.id), remote: true, id: "reply_to_#{post.id}"
           - else
-        /
-          li
-            a href=""  Share
-      - if post.comments
-        = render 'posts/comments', post: post
-      - else
+
+        li
+          - if post.comments
+            h6
+              = fa_icon "comments", text: (pluralize(post.comments.count, (t 'activerecord.attributes.post.comment')) + ':')
+      = render 'posts/comments', post: post
 
 
   hr/
