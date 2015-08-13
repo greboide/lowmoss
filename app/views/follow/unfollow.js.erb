@@ -1,0 +1,4 @@
+$(".alerts").html("<%=j render partial: "layouts/messages" %>");
+$(".follow-button-override").html("<%= j "<div class='right follow-button-override'>
+                  <a class='follow-button' data-remote='true' href='/follow/#{params[:user_id]}'>follow @novo <i class='fa fa-heart'></i></a>
+                </div>".html_safe %>");

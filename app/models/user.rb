@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
+  acts_as_follower
+  acts_as_followable
   def self.random
     ids = connection.select_all("SELECT id FROM users")
     find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?

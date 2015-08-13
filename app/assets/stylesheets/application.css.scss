@@ -17,6 +17,27 @@
 .custom-button-class { @include button($padding: $button-lrg, $radius: 100px);
                        margin-top: 0.7em;
                      }
+.follow-button {
+@include button($padding: $button-sml, $radius: 10px);
+                       margin-top: 0.2em;
+
+}
+.fa-broken-heart .fa-heart
+{
+    color:darkred;
+}
+
+.fa-broken-heart .fa-flash
+{
+    color:white !important;
+    font-size:1.0em;
+    font-weight:100 !important;
+    transform:scale(1,2); /* W3C */
+    -webkit-transform:scale(1,2); /* Safari and Chrome */
+    -moz-transform:scale(1,2); /* Firefox */
+    -ms-transform:scale(1,2); /* IE 9 */
+    -o-transform:scale(1,2); /* Opera */
+}
 meta.foundation-data-attribute-namespace {
   font-family: false; }
 input.boolean, label.boolean {

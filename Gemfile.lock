@@ -43,6 +43,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_follower (0.2.1)
     addressable (2.3.8)
     aggregate (0.2.2)
     annotate_models (0.0.4)
@@ -112,7 +113,6 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    flutie (2.0.0)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.77.0)
@@ -327,6 +327,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_follower
   annotate_models
   awesome_print (= 1.6.1)
   better_errors (= 2.1.1)
@@ -343,7 +344,6 @@ DEPENDENCIES
   dotenv-rails (= 1.0.2)
   email_spec (= 1.6.0)
   factory_girl_rails (= 4.5.0)
-  flutie (= 2.0.0)
   font-awesome-rails
   foreman (= 0.77.0)
   foundation-rails (= 5.5.2.1)

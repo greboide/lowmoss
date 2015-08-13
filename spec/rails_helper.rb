@@ -5,6 +5,19 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+def wait_for_ajax
+  counter = 0
+  while page.execute_script("return $.active").to_i > 0
+    counter += 1
+    sleep(0.1)
+    raise "AJAX request took longer than 5 seconds." if counter >= 50
+  end
+end
+
+def fill_in_autocomplete(selector, value)
+  page.execute_script %Q{$('#{selector}').val('#{value}').keydown().click();}
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

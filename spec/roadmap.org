@@ -13,34 +13,34 @@ A aplicação a ser desenvolvida é um microblog, assim como o twitter.
 *** DONE Criar postagens
 *** DONE Ver as postagens criadas
 *** DONE Comentar postagens
-*** TODO Buscar por outros usuários
-*** TODO Visualizar o perfil de outros usuários com suas postagens
+*** DONE Buscar por outros usuários
+*** DONE Visualizar o perfil de outros usuários com suas postagens
 *** TODO Seguir outro usuário
 *** TODO Receber notificação ao ser seguido por um usuário
 
-** TODO O usuário não logado deve poder
+** DONE O usuário não logado deve poder
 
-*** TODO Ver um perfil criado
-*** TODO Ver as postagens do perfil
+*** DONE Ver um perfil criado
+*** DONE Ver as postagens do perfil
 
 OBS: Essas são apenas sugestões de funcionalidades, você é livre para criar novas funcionalidades que julgar que irão melhorar a experiência de seu usuário. Trate como se fosse um produto seu, se eu fosse fazer um Microblog o que não pode faltar?
 
 ** Vamos considerar:
 
-*** TODO Testes unitários e de aceitação. Rspec, TestUnit, ou o que preferir.
-*** TODO Design de código
-*** TODO Boas práticas
-*** TODO Utilização dos recursos da linguagem
-*** TODO Conhecimento de Orientação a objeto
+*** DONE Testes unitários e de aceitação. Rspec, TestUnit, ou o que preferir.
+*** DONE Design de código
+*** DONE Boas práticas
+*** DONE Utilização dos recursos da linguagem
+*** DONE Conhecimento de Orientação a objeto
 
 ** Diferenciais:
 
-*** TODO Utilizar boas mensagens de commit
-*** TODO 100% de cobertura de testes
-*** TODO Hospedar a aplicação no heroku
-*** TODO Aplicar um front***end apresentável
+*** DONE Utilizar boas mensagens de commit
+*** DONE 100% de cobertura de testes
+*** DONE Hospedar a aplicação no heroku
+*** DONE Aplicar um front***end apresentável
 
-** DONE Pah:
+*** DONE Pah:
 
-Na HE:labs utilizamos o [Pah](https://github.com/Helabs/pah) como nosso gerador de aplicações que contém nossas configurações padrões de servidor, banco de dados, framework de css etc.
-Então se se sentir confortável com as tecnologias utilizadas, pode utilizar ele para gerar a aplicação.
+ Na HE:labs utilizamos o [Pah](https://github.com/Helabs/pah) como nosso gerador de aplicações que contém nossas configurações padrões de servidor, banco de dados, framework de css etc.
+ Então se se sentir confortável com as tecnologias utilizadas, pode utilizar ele para gerar a aplicação.

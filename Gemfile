@@ -14,7 +14,7 @@ gem 'foundation-rails',       '5.5.2.1'
 gem 'coffee-rails',           '4.1.0'
 gem 'uglifier',               '2.7.0'
 gem 'simple_form',            '3.1.0'
-gem 'flutie',                 '2.0.0'
+# gem 'flutie',                 '2.0.0'
 # gem 'bourbon',                '4.1.1'
 # gem 'neat',                   '1.7.1'
 # gem 'bitters',                '1.0.0'
@@ -24,6 +24,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem "font-awesome-rails"
 gem "smart_listing"
+gem "acts_as_follower"
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'
   gem 'rack-canonical-host',  '0.1.0'

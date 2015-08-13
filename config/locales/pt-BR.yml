@@ -229,6 +229,8 @@ pt-BR:
         body: moss
         comment: comentário
         reply: moss
+      follow:
+        followed: "Você acabou de seguir %{user}"
     models:
       user: Usuário
       post: moss

@@ -26,7 +26,19 @@ html.js.flexbox.flexboxlegacy.canvas.canvastext.webgl.no-touch.geolocation.postm
     .row
       .large-12.columns
         .panel
+          .right.follow-button-override
+            - if (@user != current_user) && user_signed_in?
+              - if !current_user.following? @user
+                  = link_to (fa_icon "heart", text: "follow #{@user.name}", right: true), follow_path(@user), remote: true, class: 'follow-button'
+              - else
+                .right
+                  a.follow-button data-remote=true href="/unfollow/#{@user.id}"
+                    t unfollow #{@user.name}
+                    span.fa-broken-heart.fa-stack
+                      i.fa.fa-heart.fa-stack-2x
+                      i.fa.fa-flash.fa-stack-1x
           h1 = "Moss Feed " + @user.name
+
     .row
       .large-3.columns
         .panel

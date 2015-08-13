@@ -35,7 +35,7 @@ describe "Home page" do
     end
     expect(page).to have_content('esse céu amarelo estrelado me faz ter vontade de viver')
   end
-  it "permite buscar perfil de outros usuários" do
+  it "permite buscar perfil de outros usuários", js: true do
     user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user, email: "buscar@teste.com.br")
     post = FactoryGirl.create(:post, user: user)
@@ -43,8 +43,34 @@ describe "Home page" do
     login_as(user, :run_callbacks => false)
     visit root_path
     expect(page).to_not have_content('user2')
-    fill_in 'filter', :with => 'buscar'
+    fill_in_autocomplete('input.search', 'busca')
     click_link("@buscar")
     expect(page).to have_content('user2')
+  end
+  it "segue outro usuário", js: true do
+    user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, email: "buscar@teste.com.br")
+    FactoryGirl.create(:post, user: user2, body: 'post from user2')
+    login_as(user, :run_callbacks => false)
+    visit root_path
+    fill_in_autocomplete('input.search', 'busca')
+    click_on("@buscar")
+    click_on("follow @buscar")
+    expect(page).to have_content(I18n.t("activerecord.attributes.follow.followed", user: user2.name))
+    expect(user2.followers.first).to eq user
+  end
+  it "deixa de seguir outro usuário", js: true do
+    user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, email: "buscar@teste.com.br")
+    FactoryGirl.create(:post, user: user2, body: 'post from user2')
+    user.follow(user2)
+    expect(user2.followers.count).to eq 1
+    login_as(user, :run_callbacks => false)
+    visit root_path
+    fill_in_autocomplete('input.search', 'busca')
+    click_on("@buscar")
+    click_on("unfollow @buscar")
+    expect(page).to have_content(I18n.t("activerecord.attributes.follow.unfollowed", user: user2.name))
+    expect(user2.followers.count).to eq 0
   end
 end

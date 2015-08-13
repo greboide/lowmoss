@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'follow/follow'
+
   resources :posts
 
   devise_for :users
@@ -9,7 +11,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'post/:original_post_id/post_comments' => 'posts#post_comments', as: :post_comments
-
+  get 'follow/:user_id' => 'follow#follow', as: :follow
+  get 'unfollow/:user_id' => 'follow#unfollow', as: :unfollow
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
