@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
+  has_many :notifications do
+    def active
+      where( :active => true )
+    end
+  end
+
   acts_as_follower
   acts_as_followable
   def self.random
@@ -12,6 +18,23 @@ class User < ActiveRecord::Base
   end
   def name
     '@' + (email.split '@').first
+  end
+
+  def followed_you
+    notif = notifications.active
+    user_ids = []
+    if notif.count > 0
+      notif.each {|a| a.body[:type] == "followed" ? user_ids << a.body[:follower_id] : nil}
+      notif.each { |b| b.created_at < (Time.now - 10.days) ? (b.active=false; b.save!;) : nil}
+      # deactivate notifications older than 10 days
+      users_names = []
+      User.find(user_ids.uniq!).each { |a| users_names << a.name }
+      return I18n.t "gflash.welcome.index.notification_followed", user: users_names.to_sentence(last_word_connector: ' e '),
+              count: user_ids.size
+    else
+      return nil
+    end
+        #I18n.t gflash.welcome.index.notification_followed
   end
 end
 

@@ -16,12 +16,13 @@ end
 #------------------------------------------------------------------------------
 # Post
 #
-# Name       SQL Type             Null    Default Primary
-# ---------- -------------------- ------- ------- -------
-# id         integer              false           true
-# body       text                 true            false
-# user_id    integer              true            false
-# created_at timestamp without time zone false           false
-# updated_at timestamp without time zone false           false
+# Name             SQL Type             Null    Default Primary
+# ---------------- -------------------- ------- ------- -------
+# id               integer              false           true   
+# body             text                 true            false  
+# user_id          integer              true            false  
+# created_at       timestamp without time zone false           false  
+# updated_at       timestamp without time zone false           false  
+# original_post_id integer              true            false  
 #
 #------------------------------------------------------------------------------

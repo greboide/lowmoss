@@ -7,7 +7,11 @@ class WelcomeController < ApplicationController
         if user_signed_in?
           @user = params[:user_id] ? User.find(params[:user_id]) : current_user
           @post = Post.new
-          @post.user = @user
+          @post.user = current_user
+          notif = current_user.followed_you
+          if notif
+            gflash :notice => notif
+          end
         else
           @user = params[:user_id] ? User.find(params[:user_id]) : User.random
         end

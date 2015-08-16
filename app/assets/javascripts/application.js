@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require foundation
 //= require smart_listing
+//= require gritter
 //= require_tree .
 
 $(function() {

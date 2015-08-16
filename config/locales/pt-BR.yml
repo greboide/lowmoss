@@ -231,6 +231,7 @@ pt-BR:
         reply: moss
       follow:
         followed: "Você acabou de seguir %{user}"
+        unfollowed: "Você acabou de deixar de seguir %{user}"
     models:
       user: Usuário
       post: moss

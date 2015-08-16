@@ -25,6 +25,7 @@ gem 'devise-i18n'
 gem "font-awesome-rails"
 gem "smart_listing"
 gem "acts_as_follower"
+gem "gritter", "1.2.0"
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'
   gem 'rack-canonical-host',  '0.1.0'

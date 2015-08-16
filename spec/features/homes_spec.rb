@@ -17,6 +17,7 @@ describe "Home page" do
     user = FactoryGirl.create(:user)
     login_as(user, :run_callbacks => false)
     visit root_path
+    save_and_open_page
     fill_in (I18n.t "activerecord.attributes.post.body"), :with => 'esse céu azul estrelado me faz ter vontade de viver'
     click_button(I18n.t "helpers.submit.create", model: 'moss')
     wait_for_ajax

@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require gritter
  *= require_self
  */
 @import "foundation_and_overrides";
@@ -22,21 +23,36 @@
                        margin-top: 0.2em;
 
 }
+.fa-stack {
+  width: 1em;
+  height: 1em;
+  bottom: 0.5em;
+}
 .fa-broken-heart .fa-heart
+{
+    color:darkred;
+    transform:scale(0.5,0.5); /* W3C */
+    -webkit-transform:scale(0.5,0.5); /* Safari and Chrome */
+    -moz-transform:scale(0.5,0.5); /* Firefox */
+    -ms-transform:scale(0.5,0.5); /* IE 9 */
+    -o-transform:scale(0.5,0.5); /* Opera */
+
+}
+.fa-heart
 {
     color:darkred;
 }
 
+
 .fa-broken-heart .fa-flash
 {
-    color:white !important;
-    font-size:1.0em;
-    font-weight:100 !important;
-    transform:scale(1,2); /* W3C */
-    -webkit-transform:scale(1,2); /* Safari and Chrome */
-    -moz-transform:scale(1,2); /* Firefox */
-    -ms-transform:scale(1,2); /* IE 9 */
-    -o-transform:scale(1,2); /* Opera */
+  color: #008ab7 !important;
+  padding-left: 0.55em;
+  transform:scale(0.8,0.7); /* W3C */
+  -webkit-transform:scale(0.8,0.7); /* Safari and Chrome */
+  -moz-transform:scale(0.8,0.7); /* Firefox */
+  -ms-transform:scale(0.8,0.7); /* IE 9 */
+  -o-transform:scale(0.8,0.7); /* Opera */
 }
 meta.foundation-data-attribute-namespace {
   font-family: false; }

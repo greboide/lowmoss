@@ -1,4 +1,9 @@
-FactoryGirl.define do
+FactoryGirl.define do  
+  factory :notification do
+    association :user
+    active false
+    body "MyString"
+  end
   factory :post do
     body "MyText"
     association :user
