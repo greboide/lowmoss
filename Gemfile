@@ -33,6 +33,7 @@ group :production, :staging do
   gem 'newrelic_rpm',         '3.9.9.275'
   gem 'rollbar',              '1.4.0'
   gem 'librato-rails',        '0.11.1'
+  gem 'le'
 end
 
 group :development do
